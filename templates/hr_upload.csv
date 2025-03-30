@@ -1,0 +1,5 @@
+employee_id,full_name,department,position,join_date,email,phone
+"EMP-1001","John Smith","IT","Senior Developer","2020-05-15","john.smith@company.com","+1234567890"
+"EMP-1002","Sarah Lee","HR","HR Manager","2019-11-20","sarah.lee@company.com","+1987654321"
+"EMP-1003","Mike Brown","Finance","Financial Analyst","2021-02-10","mike.brown@company.com","+1122334455"
+"EMP-1004","Lisa Wong","Marketing","Marketing Specialist","2022-01-15","lisa.wong@company.com","+1555666777"
