@@ -1,0 +1,6 @@
+item_code,quantity,location_id,min_stock_level
+"ITEM-1001",500,1,100
+"ITEM-1002",300,2,50
+"ITEM-2005",1200,3,200
+"ITEM-2010",75,1,50
+"ITEM-3050",650,2,300
