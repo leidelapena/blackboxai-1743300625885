@@ -1,0 +1,5 @@
+branch_name,department,custom_field1
+"Main Branch","Finance","SOP-001"
+"Warehouse A","Logistics","SOP-002"
+"Branch West","Production","SOP-003"
+"HQ","Management","SOP-004"
