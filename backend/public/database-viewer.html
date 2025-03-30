@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Viewer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        async function loadData(table) {
+            try {
+                const response = await fetch(`http://localhost:3000/api/data/${table}`);
+                const data = await response.json();
+                
+                const tableBody = document.getElementById('data-table-body');
+                tableBody.innerHTML = '';
+                
+                if (data.length > 0) {
+                    // Create headers
+                    const headers = Object.keys(data[0]);
+                    const headerRow = document.getElementById('data-table-headers');
+                    headerRow.innerHTML = headers.map(h => `<th class="px-4 py-2">${h}</th>`).join('');
+                    
+                    // Add rows
+                    data.forEach(row => {
+                        const tr = document.createElement('tr');
+                        tr.className = 'hover:bg-gray-100';
+                        headers.forEach(header => {
+                            const td = document.createElement('td');
+                            td.className = 'border px-4 py-2';
+                            td.textContent = row[header];
+                            tr.appendChild(td);
+                        });
+                        tableBody.appendChild(tr);
+                    });
+                }
+            } catch (error) {
+                console.error('Error loading data:', error);
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            loadData('erp_data');
+        });
+    </script>
+</head>
+<body class="bg-gray-50 p-8">
+    <div class="max-w-6xl mx-auto">
+        <h1 class="text-3xl font-bold mb-6">Database Viewer</h1>
+        
+        <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700 mb-1">Select Table:</label>
+            <select onchange="loadData(this.value)" class="border rounded px-3 py-2">
+                <option value="erp_data">ERP Data</option>
+                <option value="warehouse_data">Warehouse Data</option>
+                <option value="employees">HR Data</option>
+                <option value="crm_data">CRM Data</option>
+            </select>
+        </div>
+        
+        <div class="overflow-x-auto bg-white rounded-lg shadow">
+            <table class="min-w-full">
+                <thead class="bg-gray-200">
+                    <tr id="data-table-headers"></tr>
+                </thead>
+                <tbody id="data-table-body" class="divide-y divide-gray-200"></tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
