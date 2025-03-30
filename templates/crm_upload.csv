@@ -1,0 +1,4 @@
+customer_name,contact_email,lead_source,status
+"Acme Corp","contact@acme.com","Website","Qualified"
+"XYZ Ltd","sales@xyz.com","Referral","New"
+"Global Inc","info@global.com","Trade Show","Contacted"
